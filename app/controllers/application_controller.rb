@@ -13,13 +13,14 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     #binding.pry
-    @player = Player.find_by_username(params[:username])
-    
-    erb :welcome
+    # @player = Player.find_by_username(params[:username])
+
+    erb :root
   end
 
-  get '/register' do
-    "Register Page!"
+  post '/signup' do
+    binding.pry
+    player = Player.create(params)
   end
 
 end
