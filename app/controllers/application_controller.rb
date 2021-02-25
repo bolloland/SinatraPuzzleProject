@@ -13,6 +13,8 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     #binding.pry
+    @player = Player.find_by_username(params[:username])
+    
     erb :welcome
   end
 
