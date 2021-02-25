@@ -6,5 +6,6 @@ class CreatePlayers < ActiveRecord::Migration[5.2]
       t.string :password
       t.integer :team_id
       t.integer :total_solved
+    end
   end
 end

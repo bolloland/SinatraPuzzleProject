@@ -5,5 +5,6 @@ class CreatePuzzles < ActiveRecord::Migration[5.2]
       t.string :type
       t.string :solution
       t.boolean :solved?
+    end
   end
 end
