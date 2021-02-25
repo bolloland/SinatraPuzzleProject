@@ -3,5 +3,5 @@ require './config/environment'
 
 
 #use "controller_name"
-#use PlayerController
+# use PlayerController
 run ApplicationController

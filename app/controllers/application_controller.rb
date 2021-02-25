@@ -16,4 +16,8 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get '/register' do
+    "Register Page!"
+  end
+
 end
