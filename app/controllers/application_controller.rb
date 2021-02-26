@@ -20,7 +20,8 @@ class ApplicationController < Sinatra::Base
 
   post '/signup' do
     binding.pry
-    player = Player.create(params)
+    @player = Player.create(params)
+    erb :welcome_back
   end
 
 end

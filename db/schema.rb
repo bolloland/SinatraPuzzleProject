@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_021032) do
   create_table "players", force: :cascade do |t|
     t.string "username"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.integer "team_id"
     t.integer "total_solved"
   end
