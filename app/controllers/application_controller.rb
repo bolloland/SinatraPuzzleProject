@@ -18,7 +18,14 @@ class ApplicationController < Sinatra::Base
     erb :root
   end
   
- 
+ get "/signup" do
+   #takes user from root page to signup page
+   erb :"/players/signup"
+ end
+
+ get '/welcome' do
+  erb :welcome
+end
 
   helpers do #LINK controllers and views
 
