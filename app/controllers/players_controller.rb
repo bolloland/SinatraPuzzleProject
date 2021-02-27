@@ -1,10 +1,11 @@
 class PlayersController < ApplicationController
     #for anything pertaining to players
 
+    
 
     post '/signup' do
-        @player = Player.create(params)
         binding.pry
+        @player = Player.create(params)
         validate new player:
         if player.username.blank? || player.email.blank? || player.password.blank? || Player.find_by_email(params[:email]) || Player.find_by_username(params[:username])
             redirect '/players/signup'

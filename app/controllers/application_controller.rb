@@ -14,19 +14,15 @@ class ApplicationController < Sinatra::Base
   get "/" do
     #binding.pry
     # @player = Player.find_by_username(params[:username])
-
     erb :root
   end
   
- get "/signup" do
+  get "/signup" do
    #takes user from root page to signup page
    erb :"/players/signup"
- end
+  end
 
- get '/welcome' do
-  erb :welcome
-end
-
+  
   helpers do #LINK controllers and views
 
     def current_player #whoever is logged in
