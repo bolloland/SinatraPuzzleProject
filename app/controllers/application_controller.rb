@@ -17,11 +17,23 @@ class ApplicationController < Sinatra::Base
 
     erb :root
   end
+  
+ get "/signup" do
+   #takes user from root page to signup page
+   erb :"/players/signup"
+ end
 
-  post '/signup' do
-    binding.pry
-    @player = Player.create(params)
-    erb :welcome_back
+  helpers do #LINK controllers and views
+
+    def current_player #whoever is logged in
+      #memoization >> if current isn't assigned yet, assign that variable to this player
+      @current_player ||= Player.find_by_id(session[:player_id])
+    end
+
+    def logged_in?
+      !!session[:player_id]
+    end
+
   end
 
 end
