@@ -2,7 +2,6 @@ class PlayersController < ApplicationController
     #for anything pertaining to players
 
    
-    
 
     post '/signup' do
     binding.pry
