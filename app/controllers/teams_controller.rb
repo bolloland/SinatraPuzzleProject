@@ -1,9 +1,13 @@
 class TeamsController < ApplicationController
     #for anything pertaining to Teams
 
+    get '/team_create' do
+        @player = Player.find_by_id(session[:player_id])
+        erb :"/teams/team_create"
+      end
+
     post '/team_create' do
         team = Team.new(params)
-        
         #validate new player:
         if team.teamname.blank? || Team.find_by_teamname(params[:teamname])
             
@@ -19,7 +23,6 @@ class TeamsController < ApplicationController
     get "/teams/:id" do
             @team = Team.find_by_id(params[:id])
             @player = Player.find_by_id(session[:player_id])
-      # binding.pry
             erb :"/teams/team"
     end
 
