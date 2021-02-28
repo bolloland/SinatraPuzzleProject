@@ -1,0 +1,11 @@
+<div class="container">
+<h2>Team Creation </h2>
+<h4> <%= @player.username %>, fill out the fields below to create<br>
+your Puzzle Hunting team. 
+Others will be able to see this team and join it!
+<p><br><br>
+<br>Create your new Team: </h2>
+<form method="POST" action="/team_create">
+Team Name: <input type="text" name="teamname"><br>
+<input type="submit" value=" CREATE MY TEAM! ">
+</form>
