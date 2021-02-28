@@ -22,6 +22,11 @@ class ApplicationController < Sinatra::Base
    erb :"/players/signup"
   end
 
+  get '/team_create' do
+    # binding.pry
+    @player = Player.find_by_id(params[:id])
+    erb :"/teams/team_create"
+  end
   
   helpers do #LINK controllers and views
 

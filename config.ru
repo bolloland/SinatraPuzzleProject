@@ -1,9 +1,8 @@
 require './config/environment'
     # makes the app recognize the Controllers
 
-
-#use "controller_name"
-# use TeamController
 # use SolverController
+#use PuzzlesController
+use TeamsController
 use PlayersController
 run ApplicationController

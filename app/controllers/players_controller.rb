@@ -7,8 +7,7 @@ class PlayersController < ApplicationController
         player = Player.new(params)
         
         #validate new player:
-        if player.username.blank? || player.email.blank? || player.password.blank? 
-            # || Player.find_by_email(params[:email]) || Player.find_by_username(params[:username])
+        if player.username.blank? || player.email.blank? || player.password.blank? || Player.find_by_email(params[:email]) || Player.find_by_username(params[:username])
             
             #flash[:error] = "Invlaid Login"
             redirect '/signup'
