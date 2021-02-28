@@ -1,5 +1,12 @@
-<h2>Welcome ! </h2>
-<%# <%= @player.username %>
+<div class="container">
+<h2>Welcome <%= @player.username %>, to Nevertheless! </h2>
+<h4> Here, you'll be able to either join a team - or create your own!<br><br>
+Once you have a team, you can upload your own puzzle,<br>
+and download and solve other puzzles from other Hunters!
+<p>
+What would you like to do?
+<form method="GET" action="/">
+</h4>
 
 <%# #create team
 <form method="post" action="/create_team">

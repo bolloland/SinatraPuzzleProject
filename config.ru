@@ -3,7 +3,7 @@ require './config/environment'
 
 
 #use "controller_name"
-use TeamController
-use SolverController
-use PlayerController
+# use TeamController
+# use SolverController
+use PlayersController
 run ApplicationController
