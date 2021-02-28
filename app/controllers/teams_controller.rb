@@ -18,6 +18,7 @@ class TeamsController < ApplicationController
 
     get "/teams/:id" do
             @team = Team.find_by_id(params[:id])
+            @player = Player.find_by_id(session[:player_id])
       # binding.pry
             erb :"/teams/team"
     end
