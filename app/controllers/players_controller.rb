@@ -18,15 +18,15 @@ class PlayersController < ApplicationController
     #   end
      
 
-    get "/welcome/:id" do
+    get "/players/:id" do
             @player = Player.find_by_id(params[:id])
       # binding.pry
-            erb :welcome
+            erb :players
     end
 
-    get 'players/signup' do
-        erb :signup
-    end
+    # get 'players/signup' do
+    #     erb :signup
+    # end
      
 
 

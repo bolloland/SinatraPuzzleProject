@@ -23,27 +23,27 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do
-    binding.pry
-        @player = Player.create(params)
+        player = Player.new(params)
         #validate new player:
+        binding.pry
         if player.username.blank? || player.email.blank? || player.password.blank? || Player.find_by_email(params[:email]) || Player.find_by_username(params[:username])
             redirect '/signup'
         else 
             player.save
             session[:player_id] = player.id # logging user in
-            redirect '/welcome'
+            redirect "/players/#{session[:player_id]}"
         end 
     end 
 
   post "/login" do
     # binding.pry
-    @player = Player.find_by_username(params[:username])
+    player = Player.find_by_username(params[:username])
 
-      if @player == nil
+      if player == nil
         redirect "/"
         # flash[:error] = "Invalid username or password"
-      elsif !!@player.authenticate(params[:password])
-        session[:id] = @player.authenticate(params[:password]).id
+      elsif !!player.authenticate(params[:password])
+        session[:id] = player.authenticate(params[:password]).id
         # session[:team_id] = team.id   
         redirect "/teams/#{session[:team_id]}"
       else
