@@ -22,13 +22,7 @@ class ApplicationController < Sinatra::Base
    erb :"/players/signup"
   end
 
-  post "/login" do
-    binding.pry
-
-    erb :login
-  end
-
-
+  
   
   helpers do #LINK controllers and views
 
