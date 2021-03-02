@@ -1,6 +1,6 @@
 class Player < ActiveRecord::Base
-    belongs_to :teams
-    has_many :puzzles
+    has_many :puzzles, through: :games
+    has_many :games
 
     has_secure_password
 

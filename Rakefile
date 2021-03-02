@@ -4,7 +4,10 @@ require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
 desc 'opens console'
-task :console do
+task :c do
+   puts "`````````````````````````````````````````````````````````````````````````"
+   puts "`````````````````````````TIERRA````DEL```FUEGO```````````````````````````"
+   puts "`````````````````````````````````````````````````````````````````````````"
     pry
 end
 

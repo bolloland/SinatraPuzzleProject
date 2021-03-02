@@ -10,31 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_021032) do
+ActiveRecord::Schema.define(version: 2021_03_01_195942) do
+
+  create_table "games", force: :cascade do |t|
+    t.integer "player_id"
+    t.integer "puzzle_id"
+    t.boolean "solved?", default: false
+  end
 
   create_table "players", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.integer "team_id"
-    t.integer "total_solved"
   end
 
   create_table "puzzles", force: :cascade do |t|
     t.string "title"
-    t.string "type"
+    t.string "description"
+    t.string "category"
     t.string "solution"
-    t.boolean "solved?"
-  end
-
-  create_table "solvers", id: false, force: :cascade do |t|
-    t.string "player_id"
-    t.string "puzzle_id"
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string "teamname"
-    t.boolean "meta_solved?"
   end
 
 end

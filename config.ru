@@ -4,6 +4,6 @@ require './config/environment'
 # use SolverController
 use Rack::MethodOverride
 use PlayersController
-use TeamsController
+# use GamesController
 use PuzzlesController
 run ApplicationController
