@@ -13,5 +13,6 @@ gem 'bcrypt'
 gem 'tux'
 gem 'faker'
 gem 'fabrication'
+gem 'sinatra-flash'
 
 

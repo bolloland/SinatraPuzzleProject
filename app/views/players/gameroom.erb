@@ -1,0 +1,47 @@
+<!--LIST ALL puzzles. 
+Each puzzle lists: 
+name, small description, >link< , has player solved?
+OPTION to upload/create -->
+<h1> <%= @player.username.upcase %>'S GAME ROOM </h1>
+<!-- pac man image? -->
+<style>.column {
+  float: left;
+  width: 33.33%;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}   </style>
+<div class="row">
+  <div class="column"><h3>STATS</h3>
+  <p>some text...</p>
+  <p>TOTAL ATTEMPTED...</p>
+  <p>TOTAL SOLVED...</p>
+  <p>PUZZLES UPLOADED...</p>
+  </div>
+
+  <div class="column"><h3>MY SOLVES</h3>
+<p> ((link to individual puzzles?))
+    <% @player.games.map do |g| %>
+    <%   if g.solved? == true   %>
+  <ul>
+    <li>solved - <%= Puzzle.find_by_id(g.puzzle_id).title %></li>
+    <p>
+    <%   else  %>
+    <li>in progress - <%= Puzzle.find_by_id(g.puzzle_id).title %></li>
+    <p>
+</ul>
+    <%     end%>
+    <%  end   %>
+</div>
+  
+  <div class="column"><h3>MY UPLOADS</h3>
+  <form method="GET" action="/puzzles/upload">
+  <button type="button"> UPLOAD </button>
+  </form>
+
+  <p>some text...</p></div>
+</div>
+
