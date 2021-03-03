@@ -1,21 +1,15 @@
 
-<h2> Puzzle Creation </h2>
-<h4> <%= @player.username %>  fill out the fields below to create<br>
+<h2> Puzzle Upload </h2>
+<h4> <%= @current_player.username %>, fill out the fields below to create<br>
 your Puzzle information. <br>
 Others will be able to see this puzzle, download it and solve it!
 <p><br><br>
 <br>Create your new Puzzle: </h2>
-<form method="POST" action="/puzzle_create">
+<form method="POST" action="/puzzles">
 Puzzle Title: <input type="text" name="title"><br>
 Puzzle Description: <input type="textarea" rows="4" cols="40" name="description"><br>
 Puzzle Category: <input type="text" name="category"><br>
 Puzzle Solution: <input type="text" name="solution"><br>
 Upload Option:  ((coming soon!))
-<%# <select id="cat" name="category" size="10" multiple>   https://www.w3schools.com/html/html_form_elements.asp
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="fiat">Fiat</option>
-  <option value="audi">Audi</option>
-</select> %>
 <input type="submit" value=" SUBMIT MY PUZZLE ">
 </form>
