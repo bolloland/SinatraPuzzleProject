@@ -43,7 +43,7 @@ class PlayersController < ApplicationController
             # login user
             session[:player_id] = player.id
             # redirect 
-            redirect '/gameroom'
+            redirect "/players/gameroom/#{session[:player_id]}"
         else 
             # flash[]
             # flash[:error] = "Invalid login"
