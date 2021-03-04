@@ -15,10 +15,10 @@ Puzzle Solution: <%= Puzzle.last.solution %><br>
 
 BUTTONS:  <p>
 <a href="/players/index/:id"><button>CONFIRM</button></a> <p> 
-<a href="/puzzles/edit"><button>OOPS! LET ME EDIT!</button></a> <p>
+<a href="/posts/<%= @post.id %>/edit">Edit Post</a><p>
 <a href="/puzzles/new"><button>CREATE ANOTHER PUZZLE</button></a>
 
-FORM to EDIT PUZZLES:
+<!--FORM to EDIT PUZZLES:
 
 <form action="/puzzles/<%= @puzzle.id %>" method="POST">
     <input type="hidden" name="_method" value="patch">
@@ -27,4 +27,10 @@ FORM to EDIT PUZZLES:
     Title: <input type="text" name="category" value="<%= @Puzzle.category %>">
     Title: <input type="text" name="solution" value="<%= @Puzzle.solution %>">
     <input type="submit" value="Edit Puzzle">
+</form>
+oooooooooooooooooooooooooooooooooooooooooooooo  -->
+
+<form action="/posts/<%= @post.id %>" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete This Puzzle">
 </form>
