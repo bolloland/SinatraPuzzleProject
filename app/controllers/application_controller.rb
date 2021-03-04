@@ -15,7 +15,6 @@ class ApplicationController < Sinatra::Base
     #@player = Player.find_by_username(params[:username])
     erb :root
   end
-  
 
   
   helpers do #LINK controllers and views

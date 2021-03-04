@@ -1,8 +1,8 @@
 class PuzzlesController < ApplicationController
 
     get "/puzzles" do
-        @puzzles = Puzzles.all 
-        erb :"puzzles/index"
+        @puzzles = Puzzle.all 
+        erb :"/puzzles/index"
     end
     
     
@@ -13,7 +13,7 @@ class PuzzlesController < ApplicationController
 
     get "/puzzles/:id" do
         get_puzzle
-        erb :"puzzles/show"
+        erb :"/puzzles/show"
     end
 
     post "/puzzles" do
@@ -44,18 +44,32 @@ class PuzzlesController < ApplicationController
 
 
     get "/puzzles/:id/edit" do
-     get_puzzle
+        get_puzzle
+        redirect_if_not_authorized
+        @puzzle.update(title: params[:title], description: params[:description], category: params[:category], solution: params[:solution])
+        redirect "/puzzles/#{puzzle.id}"   
         #  binding.pry
         erb :"/puzzles/edit"
-end
+    end
 
-    # get '/puzzles/upload/:id' do
-    #     binding.pry
-    #     @player = Player.find_by_id(params[:id])
-    #     session[:player_id] = player.id
-    #     erb :"/puzzles/upload/:id"
-    # end
-   
+    delete '/puzzles/:id' do 
+        get_puzzle
+        @puzzle.destroy
+        redirect '/puzzles'
+        # no view 
+    end 
 
-    
+    private 
+
+    def get_puzzle 
+        @puzzle = Puzzle.find_by(id:params[:id])
+    end 
+
+    def redirect_if_not_authorized
+        if @puzzle.author != current_user
+            flash[:error] = "You cant make this edit, you don't own this"
+            redirect '/puzzles'
+        end 
+
+    end
 end

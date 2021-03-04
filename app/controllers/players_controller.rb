@@ -1,6 +1,11 @@
 class PlayersController < ApplicationController
     #for anything pertaining to players
 
+    get '/players' do
+        @players = Player.all
+        erb: "/players/index"
+    end
+
     get "/signup" do
         #takes user from root page to signup page
         erb :"/players/signup"

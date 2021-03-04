@@ -2,7 +2,7 @@ index page - gameroom?
 
 <% @puzzles.each do |p| %>
     <p>Puzzle #<%= p.id %>) <strong><%= p.title %></strong> 
-        <% if current_user == p.author %>
+        <% if current_player == p.author %>
             <a href="/puzzles/<%= p.id %>/edit">Edit</a> 
         <% end %>
     </p>
