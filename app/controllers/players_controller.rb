@@ -26,7 +26,7 @@ class PlayersController < ApplicationController
     get "/players/gameroom/:id" do
             @player = Player.find_by_id(params[:id])
     #   binding.pry
-            erb :"players/gameroom"
+            erb :"/players/gameroom"
     end
 
     # get "/players/:id" do

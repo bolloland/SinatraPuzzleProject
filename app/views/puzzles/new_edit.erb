@@ -1,15 +1,19 @@
 
-<h2> YOUR NEW PUZZLE </h2>
-<h4> <%= @current_player.username %>, IT'S ALIVE! <br>
-Here's the info on your new puzzle. 
-Others will be able to see this puzzle, download it and solve it!
-<p><br><br>
-<br>CONGRATS! It's A Puzzle!: </h2>
+<h2> CONGRATS! IT'S A PUZZLE! </h2>
+<h4> <%= @current_player.username.upcase %>, IT'S ALIVE! <br>
+Here's the info on your new puzzle.<br>
+Others will be able to see this puzzle, download it and solve it!<br>
+So, make sure the information below is correct. 
+<p> </h2>
 <h3>
-Puzzle Title: <input type="text" name="title"><br>
-Puzzle Description: <input type="textarea" rows="4" cols="40" name="description"><br>
-Puzzle Category: <input type="text" name="category"><br>
-Puzzle Solution: <input type="text" name="solution"><br>
-Upload Option:  ((coming soon!))</h3>
-<input type="submit" value=" SUBMIT MY PUZZLE ">
-</form>
+<!-- @current_player.games.last.puzzle_id -->
+Puzzle Title: <%= Puzzle.last.title %><br>
+Puzzle Description: <%= Puzzle.last.description %><br>
+Puzzle Category: <%= Puzzle.last.category %><br>
+Puzzle Solution: <%= Puzzle.last.solution %><br>
+</h3>
+
+BUTTONS:  <p>
+<a href="/players/gameroom"><button>CONFIRM</button></a> <p> 
+<a href="/puzzles/edit"><button>OOPS! LET ME EDIT!</button></a> <p>
+<a href="/puzzles/new"><button>CREATE ANOTHER PUZZLE</button></a>
