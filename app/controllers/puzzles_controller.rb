@@ -20,6 +20,7 @@ class PuzzlesController < ApplicationController
 
     post "/puzzles" do
         puzzle = Puzzle.new(params)
+        # binding.pry
         if puzzle.title.blank? || puzzle.description.blank? || puzzle.category.blank? || puzzle.solution.blank? 
             flash[:error] = "You left something blank!"
             redirect '/puzzles/new'
@@ -28,26 +29,30 @@ class PuzzlesController < ApplicationController
             # puzzle.title.exists?
             flash[:error] = "Sorry, that title already exists :("
             redirect '/puzzles/new'
-            binding.pry
         else
+            # binding.pry
             current_player
-            @current_player.games
-            # new_puz = Puzzle.new(params)
-            # Game.create(player_id: session[:player_id], puzzle_id: new_puz.id)
-            # new_puz.save
-            Game.create(player_id: session[:player_id], puzzle_id: puzzle.id)
+            # @current_player.games
+            puzzle.created_by = @current_player.username
             puzzle.save
-            redirect "/puzzles/#{session[:player_id]}"
+            Game.create(player_id: session[:player_id], puzzle_id: puzzle.id)
+            # @puzzle = puzzle
+            redirect "/puzzles/#{puzzle.id}"
         end          
     end
 
     get "/puzzles/:id/edit" do
+        current_player
         get_puzzle
         redirect_if_not_authorized
+        erb :"/puzzles/edit"
+    
+    end
+    
+    patch "/puzzles/:id" do
+        get_puzzle
         @puzzle.update(title: params[:title], description: params[:description], category: params[:category], solution: params[:solution])
         redirect "/puzzles/#{puzzle.id}"   
-        #  binding.pry
-        erb :"/puzzles/edit"
     end
 
     delete '/puzzles/:id' do 
@@ -60,13 +65,14 @@ class PuzzlesController < ApplicationController
     private 
 
     def get_puzzle 
+        # binding.pry
         @puzzle = Puzzle.find_by(id:params[:id])
     end 
 
     def redirect_if_not_authorized
-        if @puzzle.author != current_user
-            flash[:error] = "You cant make this edit, you don't own this"
-            redirect '/puzzles'
+        if @puzzle.created_by != current_player.username
+            flash[:error] = "You cant edit this Puzzle, because you didn't create it."
+            redirect "/puzzles/#{@puzzle.id}"
         end 
 
     end

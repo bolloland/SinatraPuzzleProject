@@ -1,8 +1,8 @@
 index page - gameroom?
 
 <% @puzzles.each do |p| %>
-    <p>Puzzle #<%= p.id %>) <strong><%= p.title %></strong> 
-        <% if current_player == p.author %>
+    <p>puzzle #<%= p.id %>) <strong><%= p.title %></strong> 
+        <% if current_player == p.created_by %>
             <a href="/puzzles/<%= p.id %>/edit">Edit</a> 
         <% end %>
     </p>

@@ -1,10 +1,11 @@
 
 <h2> CONGRATS! IT'S A PUZZLE! </h2>
-<h4> <%= @current_player.username.upcase %>, IT'S ALIVE! <br>
-Below is the info on your new puzzle.<br>
-Others will be able to see this puzzle, download it and solve it!<br>
-So, make sure the information below is correct. 
+<h4> <%= @current_player.username.upcase %>, below is the info on your new puzzle.<br>
+Others will be able to download and solve this puzzle, so make sure the information below is correct. 
 <p> </h2>
+<% if flash[:error] %>
+<h1><%= flash[:error] %></h1>
+<% end %>
 <h3>
 <!-- @current_player.games.last.puzzle_id -->
 Puzzle Title: <%= Puzzle.last.title %><br>
@@ -12,25 +13,16 @@ Puzzle Description: <%= Puzzle.last.description %><br>
 Puzzle Category: <%= Puzzle.last.category %><br>
 Puzzle Solution: <%= Puzzle.last.solution %><br>
 </h3>
+ <p>
+<!-- a href="/players/<% @current_player.id %>/edit"><button>Edit this Puzzle</button></a> -->
 
-BUTTONS:  <p>
-<a href="/players/index/:id"><button>CONFIRM</button></a> <p> 
-<a href="/players/<% current_player.id %>/edit">Edit Post</a><p>
-<a href="/puzzles/new"><button>CREATE ANOTHER PUZZLE</button></a>
+<form action="/puzzles/<%= @puzzle.id %>/edit" method="GET">
+    <input type="submit" value="Edit This Puzzle"></form><p>
 
-<form action="/players/<%= current_player.id %>" method="POST">
+<form action="/puzzles/<% @puzzle.id %>" method="POST">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete This Puzzle">
-</form>
+    <input type="submit" value="Delete This Puzzle"></form><p>
 
-<!--FORM to EDIT PUZZLES:
+<a href="/puzzles/new"><button>submit another Puzzle</button></a><p>
 
-<form action="/puzzles/<%= @puzzle.id %>" method="POST">
-    <input type="hidden" name="_method" value="patch">
-    Title: <input type="text" name="title" value="<%= @Puzzle.title %>">
-    Description: <textarea name="description"><%= @Puzzle.description %></textarea>
-    Title: <input type="text" name="category" value="<%= @Puzzle.category %>">
-    Title: <input type="text" name="solution" value="<%= @Puzzle.solution %>">
-    <input type="submit" value="Edit Puzzle">
-</form>
-oooooooooooooooooooooooooooooooooooooooooooooo  -->
+<a href="/players/index/:id"><button>to the Gameroom</button></a> <p> 

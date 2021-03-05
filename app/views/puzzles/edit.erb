@@ -1,30 +1,12 @@
 
-<h2> CONGRATS! IT'S A PUZZLE! </h2>
-<h4> <%= @current_player.username.upcase %>, IT'S ALIVE! <br>
-Below is the info on your new puzzle.<br>
-Others will be able to see this puzzle, download it and solve it!<br>
-So, make sure the information below is correct. 
-<p> </h2>
-<h3>
-<!-- @current_player.games.last.puzzle_id -->
-Puzzle Title: <%= Puzzle.last.title %><br>
-Puzzle Description: <%= Puzzle.last.description %><br>
-Puzzle Category: <%= Puzzle.last.category %><br>
-Puzzle Solution: <%= Puzzle.last.solution %><br>
-</h3>
-
-BUTTONS:  <p>
-<a href="/players/index/:id"><button>CONFIRM</button></a> <p> 
-<a href="/puzzles/edit"><button>LET ME EDIT!</button></a> <p>
-<a href="/puzzles/new"><button>CREATE ANOTHER PUZZLE</button></a>
 
 FORM to EDIT PUZZLES:
 
 <form action="/puzzles/<%= @puzzle.id %>" method="POST">
     <input type="hidden" name="_method" value="patch">
-    Title: <input type="text" name="title" value="<%= @Puzzle.title %>">
-    Description: <textarea name="description"><%= @Puzzle.description %></textarea>
-    Title: <input type="text" name="category" value="<%= @Puzzle.category %>">
-    Title: <input type="text" name="solution" value="<%= @Puzzle.solution %>">
+    Title: <input type="text" name="title" value="<%= @puzzle.title %>">
+    Description: <textarea name="description"><%= @puzzle.description %></textarea>
+    Title: <input type="text" name="category" value="<%= @puzzle.category %>">
+    Title: <input type="text" name="solution" value="<%= @puzzle.solution %>">
     <input type="submit" value="Edit Puzzle">
 </form>
