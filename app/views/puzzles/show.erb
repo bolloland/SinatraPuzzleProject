@@ -15,8 +15,13 @@ Puzzle Solution: <%= Puzzle.last.solution %><br>
 
 BUTTONS:  <p>
 <a href="/players/index/:id"><button>CONFIRM</button></a> <p> 
-<a href="/posts/<%= @post.id %>/edit">Edit Post</a><p>
+<a href="/players/<% current_player.id %>/edit">Edit Post</a><p>
 <a href="/puzzles/new"><button>CREATE ANOTHER PUZZLE</button></a>
+
+<form action="/players/<%= current_player.id %>" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete This Puzzle">
+</form>
 
 <!--FORM to EDIT PUZZLES:
 
@@ -29,8 +34,3 @@ BUTTONS:  <p>
     <input type="submit" value="Edit Puzzle">
 </form>
 oooooooooooooooooooooooooooooooooooooooooooooo  -->
-
-<form action="/posts/<%= @post.id %>" method="POST">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete This Puzzle">
-</form>

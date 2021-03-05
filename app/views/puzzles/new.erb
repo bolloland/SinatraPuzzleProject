@@ -1,13 +1,16 @@
 
 <h2> Puzzle Upload </h2>
-<h4> <%= @current_player.username.upcase %>, fill out the fields below to create<br>
+<h4> <%= @current_player.username.upcase %>, fill out the fields below to create
 your Puzzle information. <br>
 Others will be able to see this puzzle, download it and solve it!
-<p><br><br>
+<p>
+<% if flash[:error] %>
+<p><%= flash[:error] %></p>
+<% end %>
 <br>Create your new Puzzle: </h2>
 <form method="POST" action="/puzzles">
 Puzzle Title: <input type="text" name="title"><br>
-Puzzle Description: <textarea rows="4" cols="40" name="description"></textarea><br>
+Puzzle Description: <textarea rows="3" cols="65" name="description"></textarea><br>
 Puzzle Category: <input type="text" name="category"><br>
 Puzzle Solution: <input type="text" name="solution"><br>
 Upload Option:  ((coming soon!))
