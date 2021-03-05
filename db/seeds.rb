@@ -1,18 +1,3 @@
-# [15] pry(main)> Player.first
-# => #<Player:0x000055c70a03e838
-#  id: 1,
-#  username: "Ryan",
-#  email: "ryan@ryan.com",
-#  password_digest: "$2a$12$rHcjb1t4fZ5r/sIMgBEXu.Z0Jy70JEk7H0mdQGb2nYvv4U3RP6mK.">
-# [16] pry(main)> Player.first.games
-# => [#<Game:0x000055c70a6fa708 id: 1, player_id: 1, puzzle_id: 1, solved?: false>]
-# [17] pry(main)> Player.first.games.first
-# => #<Game:0x000055c70a78a290 id: 1, player_id: 1, puzzle_id: 1, solved?: false>
-# [18] pry(main)> Player.first.games.first.puzzle
-# => #<Puzzle:0x000055c70a80deb0 id: 1, title: "Lucky", description: nil, category: "sudoku", solution: nil>
-# [19] pry(main)> 
-
-# add error handling with begin and rescue for ouput messages
 
 # Start by wiping the db
 Player.destroy_all

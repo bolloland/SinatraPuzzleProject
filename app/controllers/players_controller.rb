@@ -3,23 +3,23 @@ class PlayersController < ApplicationController
 
     get '/players' do
         @players = Player.all
-        erb: "/players/index"
+        erb :"/players/index"
     end
 
     get "/signup" do
         #takes user from root page to signup page
         erb :"/players/signup"
-       end
+    end
      
     post '/signup' do
         player = Player.new(params)
         #validate new player:
 
         if player.username.blank? || player.email.blank? || player.password.blank? 
-            # flash[:alert] = "You left something blank!"
+            flash[:error] = "You left something blank!"
             redirect '/signup'
         elsif Player.find_by_email(params[:email]) || Player.find_by_username(params[:username])
-            # flash[:error] = "That email or username has been used."
+            flash[:error] = "That email or username has been used."
             redirect '/signup'
         else 
             player.save

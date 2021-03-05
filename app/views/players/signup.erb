@@ -1,5 +1,9 @@
 <h2> Welcome! 
+<%# <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/whatsapp/273/pile-of-poo_1f4a9.png"> %>
 <br>Create a new Player account: </h2>
+<% if flash[:error] %>
+<p><%= flash[:error] %></p>
+<% end %>
 <form method="POST" action="/signup">
 username: <input type="text" name="username"><br>
    email: <input type="email" name="email"><br>
