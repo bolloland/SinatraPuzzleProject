@@ -40,9 +40,12 @@ OPTION to upload/create -->
   
   <div class="column"><h3>MY UPLOADS</h3>
 
-  <a href="/puzzles/new"><button>  UPLOAD </button></a>
+  <a href="/puzzles/new"><button> UPLOAD </button></a>
  
+<% @player.games.map do |g| %>
+    <%   if g.solved? == true   %>
 
+    
   <p>some text...</p></div>
 </div>
 

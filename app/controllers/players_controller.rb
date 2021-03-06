@@ -30,7 +30,7 @@ class PlayersController < ApplicationController
     
     get "/players/gameroom/:id" do  #SHOW Player Stats
             @player = Player.find_by_id(params[:id])
-    #   binding.pry
+    # binding.pry
             erb :"/players/gameroom"
     end
 
