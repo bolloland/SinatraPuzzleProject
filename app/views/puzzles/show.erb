@@ -8,21 +8,24 @@ Others will be able to download and solve this puzzle, so make sure the informat
 <% end %>
 <h3>
 <!-- @current_player.games.last.puzzle_id -->
-Puzzle Title: <%= Puzzle.last.title %><br>
-Puzzle Description: <%= Puzzle.last.description %><br>
-Puzzle Category: <%= Puzzle.last.category %><br>
-Puzzle Solution: <%= Puzzle.last.solution %><br>
+Puzzle Title: <%= @puzzle.title %><br>
+Puzzle Description: <%= @puzzle.description %><br>
+Puzzle Category: <%= @puzzle.category %><br>
+Puzzle Solution: <% if @current_player.username == @player.created_by %>
+                    <%= @puzzle.solution %><br>
+                    <% else %>
+                    <%= flash[:cheat] %>
+                    <% end %>
 </h3>
  <p>
 <!-- a href="/players/<% @current_player.id %>/edit"><button>Edit this Puzzle</button></a> -->
 
 <form action="/puzzles/<%= @puzzle.id %>/edit" method="GET">
     <input type="submit" value="Edit This Puzzle"></form><p>
-
 <form action="/puzzles/<% @puzzle.id %>" method="POST">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete This Puzzle"></form><p>
+<br>
+<a href="/puzzles/new"><button>Submit Another Puzzle</button></a><p>
 
-<a href="/puzzles/new"><button>submit another Puzzle</button></a><p>
-
-<a href="/players/index/:id"><button>to the Gameroom</button></a> <p> 
+<a href="/players/gameroom/<%= @current_player.id %>"><button>To The Gameroom</button></a> <p> 

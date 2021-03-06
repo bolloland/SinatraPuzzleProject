@@ -1,5 +1,6 @@
-index page - gameroom?
+<h1>All The Puzzles That're Fit To Solve</h1>
 
+<br>
 <% @puzzles.each do |p| %>
     <p>puzzle #<%= p.id %>) <strong><%= p.title %></strong> 
         <% if current_player == p.created_by %>

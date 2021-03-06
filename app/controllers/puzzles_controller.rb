@@ -14,7 +14,10 @@ class PuzzlesController < ApplicationController
     get "/puzzles/:id" do
         get_puzzle
         current_player
+        flash[:cheat] = "Nuh-uh-uh, I can't just GIVE you the answer!"
         # binding.pry
+
+        
         erb :"/puzzles/show"
     end
 
@@ -74,6 +77,15 @@ class PuzzlesController < ApplicationController
             flash[:error] = "You cant edit this Puzzle, because you didn't create it."
             redirect "/puzzles/#{@puzzle.id}"
         end 
-
     end
+
+    def my_puzzle?
+        @current_player.username == @player.created_by
+    end
+
+    # def get_game
+        
+    # end
+
+
 end

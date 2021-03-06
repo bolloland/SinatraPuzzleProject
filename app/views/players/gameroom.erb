@@ -27,10 +27,11 @@ OPTION to upload/create -->
     <% @player.games.map do |g| %>
     <%   if g.solved? == true   %>
   <ul>
-    <li>solved - <%= Puzzle.find_by_id(g.puzzle_id).title %> - <!-- VIEW, link to puzzle id page </li>
+    <li>solved - <%= Puzzle.find_by_id(g.puzzle_id).title %> - 
+    <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a> </li>
     <p>
     <%   else  %>
-    <li>in progress - <%= Puzzle.find_by_id(g.puzzle_id).title %></li>
+    <li>in progress - <%= Puzzle.find_by_id(g.puzzle_id).title %> - <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a></li>
     <p>
 </ul>
     <%     end%>
