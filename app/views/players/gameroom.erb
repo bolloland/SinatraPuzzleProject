@@ -27,7 +27,7 @@ OPTION to upload/create -->
     <% @player.games.map do |g| %>
     <%   if g.solved? == true   %>
   <ul>
-    <li>solved - <%= Puzzle.find_by_id(g.puzzle_id).title %></li>
+    <li>solved - <%= Puzzle.find_by_id(g.puzzle_id).title %> - <!-- VIEW, link to puzzle id page </li>
     <p>
     <%   else  %>
     <li>in progress - <%= Puzzle.find_by_id(g.puzzle_id).title %></li>

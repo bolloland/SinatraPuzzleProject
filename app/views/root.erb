@@ -11,7 +11,11 @@ Puzzle Submissions and Solves</h2>
 
 
 <h4>Back to help your Team?<br>Sign in below!</h4>
-<br><br><form method="POST" action='/login'>
+<br>
+<% if flash[:error] %>
+<h1><%= flash[:error] %></h1>
+<% end %>
+<br><form method="POST" action='/login'>
 username: <input type="text" name="username"><br>
 password: <input type="password" name="password"><br><br>
 <input type="submit" value="Let's Get Puzzling!">

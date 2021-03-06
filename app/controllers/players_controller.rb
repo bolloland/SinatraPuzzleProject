@@ -28,7 +28,7 @@ class PlayersController < ApplicationController
         end 
     end 
     
-    get "/players/gameroom/:id" do
+    get "/players/gameroom/:id" do  #SHOW Player Stats
             @player = Player.find_by_id(params[:id])
     #   binding.pry
             erb :"/players/gameroom"
@@ -51,7 +51,7 @@ class PlayersController < ApplicationController
             redirect "/players/gameroom/#{session[:player_id]}"
         else 
             # flash[]
-            # flash[:error] = "Invalid login"
+            flash[:error] = "Invalid login"
             # invalid login
             redirect '/'
         end 
@@ -59,7 +59,7 @@ class PlayersController < ApplicationController
 
     get '/logout' do
         session.clear
-        redirect '/login'
+        redirect '/'
     end 
     
 end
@@ -68,8 +68,7 @@ end
     #         # flash[:error] = "Invalid username or password"
     #     elsif !!player.authenticate(params[:password])
     #         session[:id] = player.authenticate(params[:password]).id
-    #         # session[:team_id] = team.id   
-    #         redirect "/teams/#{session[:team_id]}"
+    #      
     #     else
     #         redirect to '/'
     #     end
