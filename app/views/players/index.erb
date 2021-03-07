@@ -1,0 +1,7 @@
+<h1>All The Players Champing The Bit To Solve</h1>
+
+<br>
+<% @players.each do |p| %>
+    <p>#<%= p.id %>) <a href="/players/<%= p.id %>"><strong><%= p.username %></strong></a>
+    </p>
+<% end %>

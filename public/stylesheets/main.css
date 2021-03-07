@@ -44,7 +44,7 @@
       margin-bottom: 18px;
     }
     .main {
-      overflow: hidden;
+      overflow: auto;
     }
     .content {
       float: left;

@@ -63,22 +63,6 @@ class PlayersController < ApplicationController
     end 
     
 end
-    #     if player == nil
-    #         redirect "/"
-    #         # flash[:error] = "Invalid username or password"
-    #     elsif !!player.authenticate(params[:password])
-    #         session[:id] = player.authenticate(params[:password]).id
-    #      
-    #     else
-    #         redirect to '/'
-    #     end
-    # end
-     
-
-
-    # get 'players/signup' do
-    #     erb :signup
-    # end
      
 
 

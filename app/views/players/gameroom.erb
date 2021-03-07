@@ -1,9 +1,6 @@
-<!--LIST ALL puzzles. 
-Each puzzle lists: 
-name, small description, >link< , has player solved?
-OPTION to upload/create -->
+
 <h1> <%= @player.username.upcase %>'S PUZZLES </h1>
-<!-- pac man image? -->
+
 <style>.column {
   float: left;
   width: 33.33%;
@@ -23,18 +20,17 @@ OPTION to upload/create -->
   </div>
 
   <div class="column"><h3>MY SOLVES</h3>
-<p> ((link to individual puzzles?))
+<p>
     <% @player.games.map do |g| %>
     <%   if g.solved? == true   %>
   <ul>
     <li>solved - <%= Puzzle.find_by_id(g.puzzle_id).title %> - 
     <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a> </li>
-    <p>
     <%   else  %>
-    <li>in progress - <%= Puzzle.find_by_id(g.puzzle_id).title %> - <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a></li>
-    <p>
-</ul>
-    <%     end%>
+    <li>in progress - <%= Puzzle.find_by_id(g.puzzle_id).title %> - 
+    <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a></li>
+  </ul>
+      <% end%>
     <%  end   %>
 </div>
   
@@ -44,8 +40,8 @@ OPTION to upload/create -->
  
 <% @player.games.map do |g| %>
     <%   if g.solved? == true   %>
-
-    
-  <p>some text...</p></div>
+    <%= g %>
+    <% end %>
+</div>
 </div>
 

@@ -28,6 +28,9 @@ class ApplicationController < Sinatra::Base
       !!session[:player_id]
     end
 
+    
+
+
   end
 
 end
