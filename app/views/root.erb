@@ -1,19 +1,36 @@
-
-<h2> ))<>((  b.a.f.f.le! ))<>((<br>
+<style>
+.center {
+  text-align: center;
+}
+</style>
+<div class="center">
+<h2> ))<>((  b.a.f.f.le ))<>((<br>
 Puzzle Submissions and Solves</h2>
-
+</div>
 
 <h4>Sign up to play puzzles - or to submit one of your own!<br><br>
 
+<style>.column {
+  float: left;
+  width: 50%;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}   </style>
 
+<div class="row">
+  <div class="column">
+  <div class="center">
 <form action="/signup" method="GET">
-    <input type="submit" value=" SIGN UP HERE ">
-</form>
-<br><br>
+    <input type="submit" value=" SIGN UP HERE! ">
+</form></div></div>
 
 
-<h4>Back to help your Team?<br>Sign in below!</h4>
-<br>
+ <div class="column">
+<h4>Back to help your Team? - Sign in below!</h4>
 <% if flash[:error] %>
 <h1><%= flash[:error] %></h1>
 <% end %>
@@ -21,4 +38,5 @@ Puzzle Submissions and Solves</h2>
 username: <input type="text" name="username"><br>
 password: <input type="password" name="password"><br><br>
 <input type="submit" value="Let's Get Puzzling!">
-</form>
+</form></div>
+</div>
