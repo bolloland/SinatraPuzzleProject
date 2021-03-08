@@ -13,22 +13,24 @@
 }   </style>
 <div class="row">
   <div class="column"><h3>STATS</h3>
-  <p>some text...</p>
-  <p>TOTAL ATTEMPTED...</p>
-  <p>TOTAL SOLVED...</p>
+  <p></p>
+  <p></p>
+ 
+   <%= @player.games.count %> Puzzle(s) Attempted</p>
   <p>PUZZLES UPLOADED...</p>
+
   </div>
 
-  <div class="column"><h3>MY SOLVES</h3>
+  <div class="column"><h3><%= @player.username.upcase %>'s SOLVES</h3>
 <p>
     <% @player.games.map do |g| %>
     <%   if g.solved? == true   %>
   <ul>
     <li>solved - <%= Puzzle.find_by_id(g.puzzle_id).title %> - 
-    <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a> </li>
+    <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a><br></br> </li>
     <%   else  %>
     <li>in progress - <%= Puzzle.find_by_id(g.puzzle_id).title %> - 
-    <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a></li>
+    <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a><br></br></li>
   </ul>
       <% end%>
     <%  end   %>

@@ -27,7 +27,8 @@ Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
 
 <form action="/puzzles/<%= @puzzle.id %>/edit" method="GET">
     <input type="submit" value="Edit This Puzzle"></form><p>
-<form action="/puzzles/<% @puzzle.id %>" method="POST">
+
+<form action="/puzzles/<%= @puzzle.id %>" method="POST">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete This Puzzle"></form><p>
 <br>

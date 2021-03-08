@@ -57,6 +57,7 @@ class PuzzlesController < ApplicationController
     end
 
     delete '/puzzles/:id' do 
+        # binding.pry
         get_puzzle
         @puzzle.destroy
         redirect '/puzzles'
