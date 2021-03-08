@@ -8,8 +8,9 @@
 Puzzle Submissions and Solves</h2>
 </div>
 
-<h4>Sign up to play puzzles - or to submit one of your own!<br><br>
-
+<% if flash[:login] %>
+<h2><strong><%= flash[:login] %></strong></h2>
+<% end %>
 <style>.column {
   float: left;
   width: 50%;
@@ -23,18 +24,20 @@ Puzzle Submissions and Solves</h2>
 
 <div class="row">
   <div class="column">
-  <div class="center">
-<form action="/signup" method="GET">
+  <div class="left">
+
+<h4>Sign up here to play puzzles -</br> or to submit one of your own!<br>
+<p></p><form action="/signup" method="GET">
     <input type="submit" value=" SIGN UP HERE! ">
 </form></div></div>
 
 
  <div class="column">
-<h4>Back to help your Team? - Sign in below!</h4>
+<h4>Back to help your Team?<br>Sign in below!</h4>
 <% if flash[:error] %>
 <h1><%= flash[:error] %></h1>
 <% end %>
-<br><form method="POST" action='/login'>
+<form method="POST" action='/login'>
 username: <input type="text" name="username"><br>
 password: <input type="password" name="password"><br><br>
 <input type="submit" value="Let's Get Puzzling!">

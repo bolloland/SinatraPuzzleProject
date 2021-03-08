@@ -17,19 +17,21 @@
   <p></p>
  
    <%= @player.games.count %> Puzzle(s) Attempted</p>
-  <p>PUZZLES UPLOADED...</p>
+  
   </div>
-  <div class="column"><h3><%= @player.username.upcase %>'s SOLVES</h3>
+  <div class="column"><h3><%= @player.username.upcase %>'s Progress</h3>
 <p>
-    <% @player.games.map do |g| %>
+    <% @player.games.each do |g| %>
     <%   if g.solved? == true   %>
   <ul>
     <li>solved - <%= Puzzle.find_by_id(g.puzzle_id).title %> - 
     <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a><br></br> </li>
-    <%   else  %>
+    <%   elsif g.solved? == false %>
     <li>in progress - <%= Puzzle.find_by_id(g.puzzle_id).title %> - 
     <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a><br></br></li>
   </ul>
+    <% else %>
+        <p> No puzzles currently attempted."</p>
       <% end%>
     <%  end   %>
 </div>

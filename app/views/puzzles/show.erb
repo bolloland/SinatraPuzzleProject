@@ -11,7 +11,11 @@ Others will be able to download and solve this puzzle, so make sure the informat
 Puzzle Title: <strong><%= @puzzle.title %><br></strong>
 Puzzle Description: <strong><%= @puzzle.description %></strong><br>
 Puzzle Category: <strong><%= @puzzle.category %></strong><br>
-Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
+Puzzle Solution: <% if current_player == nil %>
+                    <% if flash[:nono] %>
+                    <%= flash[:nono] %>
+                    <% end %>
+                 <% elsif current_player.username == @puzzle.created_by %>
                         "<%= @puzzle.solution %>"<br>
                  <% elsif current_player.games.select do |g| %>
                         <% if g.puzzle_id == @puzzle.id && g.solved? == true %>
@@ -19,12 +23,12 @@ Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
                         <% end %>
                     <% end %>
                 <% else %>
+                    <% if flash[:nono] %>
                     <%= flash[:nono] %>
+                    <% end %>
                 <% end %>
 </h3>
  <p>
-<!-- a href="/players/<% @current_player.id %>/edit"><button>Edit this Puzzle</button></a> -->
-
 <form action="/puzzles/<%= @puzzle.id %>/edit" method="GET">
     <input type="submit" value="Edit This Puzzle"></form><p>
 

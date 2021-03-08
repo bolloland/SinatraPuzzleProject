@@ -6,17 +6,27 @@ class PuzzlesController < ApplicationController
     end
     
     get '/puzzles/new' do  #NEW - Puzzle
+        if !logged_in?
+            redirect '/'
+        else        
         current_player
         erb :"/puzzles/new"
+        end
+
     end
 
     get "/puzzles/:id" do  #SHOW - Puzzle
+        if current_player == nil
+            flash[:login] = "Sign Up or Login to View Our Puzzles"
+            redirect '/'
+        else
         get_puzzle
         current_player
         flash[:nono] = "Sorry, I can't just /give/ you the answer!"
     # binding.pry
 
         erb :"/puzzles/show"
+        end
     end
 
     post "/puzzles" do  #CREATE - Puzzle
