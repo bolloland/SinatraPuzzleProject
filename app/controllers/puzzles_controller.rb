@@ -52,7 +52,8 @@ class PuzzlesController < ApplicationController
     patch "/puzzles/:id" do
         get_puzzle
         @puzzle.update(title: params[:title], description: params[:description], category: params[:category], solution: params[:solution])
-        redirect "/puzzles/#{puzzle.id}"   
+    #    binding.pry
+       redirect "/puzzles/#{@puzzle.id}"   
     end
 
     delete '/puzzles/:id' do 
