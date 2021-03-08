@@ -7,15 +7,20 @@ Others will be able to download and solve this puzzle, so make sure the informat
 <h1><%= flash[:error] %></h1>
 <% end %>
 <h3>
-<!-- @current_player.games.last.puzzle_id -->
+
 Puzzle Title: <%= @puzzle.title %><br>
 Puzzle Description: <%= @puzzle.description %><br>
 Puzzle Category: <%= @puzzle.category %><br>
-Puzzle Solution: <% if @current_player.username == @player.created_by %>
-                    <%= @puzzle.solution %><br>
-                    <% else %>
-                    <%= flash[:cheat] %>
+Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
+                        "<%= @puzzle.solution %>"<br>
+                 <% elsif current_player.games.select do |g| %>
+                        <% g.puzzle_id == @puzzle.id && g.solved? == true %>
+                            "<%= @puzzle.solution %>"<br>
+                    
                     <% end %>
+                <% else %>
+                    <%= "Nuh-uh-uh, I can't just GIVE you the answer!" %>
+                <% end %>
 </h3>
  <p>
 <!-- a href="/players/<% @current_player.id %>/edit"><button>Edit this Puzzle</button></a> -->

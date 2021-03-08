@@ -13,9 +13,7 @@ class PuzzlesController < ApplicationController
     get "/puzzles/:id" do
         get_puzzle
         current_player
-        flash[:cheat] = "Nuh-uh-uh, I can't just GIVE you the answer!"
         # binding.pry
-
 
         erb :"/puzzles/show"
     end
@@ -79,7 +77,7 @@ class PuzzlesController < ApplicationController
     end
 
     def my_puzzle?
-        @current_player.username == @puzzle.created_by
+        current_player.username == @puzzle.created_by
     end
 
     # def get_game

@@ -3,9 +3,9 @@ FORM to EDIT PUZZLES:
 
 <form action="/puzzles/<%= @puzzle.id %>" method="POST">
     <input type="hidden" name="_method" value="patch">
-    Title: <input type="text" name="title" value="<%= @puzzle.title %>">
-    Description: <textarea name="description"><%= @puzzle.description %></textarea>
-    Title: <input type="text" name="category" value="<%= @puzzle.category %>">
-    Title: <input type="text" name="solution" value="<%= @puzzle.solution %>">
+    <p> Title: <input type="text" name="title" value="<%= @puzzle.title %>"></p>
+    <p> Description: <textarea name="description"><%= @puzzle.description %></textarea></p>
+    <p> Category: <input type="text" name="category" value="<%= @puzzle.category %>"></p>
+    <p> Solution: <input type="text" name="solution" value="<%= @puzzle.solution %>"></p>
     <input type="submit" value="Edit Puzzle">
 </form>

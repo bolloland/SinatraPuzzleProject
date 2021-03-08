@@ -30,7 +30,7 @@ class PlayersController < ApplicationController
     
     get "/players/gameroom/:id" do  #SHOW Player Stats
             @player = Player.find_by_id(params[:id])
-    # binding.pry
+    
             erb :"/players/gameroom"
     end
 
@@ -61,7 +61,12 @@ class PlayersController < ApplicationController
         session.clear
         redirect '/'
     end 
-    
+
+    get '/players/account' do
+        @player = current_player
+        erb :"/players/gameroom"
+    end
+
 end
      
 

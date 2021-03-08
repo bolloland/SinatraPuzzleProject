@@ -37,11 +37,12 @@
   <div class="column"><h3>MY UPLOADS</h3>
 
   <a href="/puzzles/new"><button> UPLOAD </button></a>
- 
-<% @player.games.map do |g| %>
-    <%   if g.solved? == true   %>
-    <%= g %>
-    <% end %>
+ <br></br>
+<% Puzzle.all.each do |z| %>
+      <% if z.created_by == current_player.username %>
+      <p><a href="/puzzles/<%= z.id %>"><strong><%= z.title %></strong></a></p>
+      <% end %>
+<% end %>
 </div>
 </div>
 

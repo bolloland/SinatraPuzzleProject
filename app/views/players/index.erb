@@ -2,6 +2,7 @@
 
 <br>
 <% @players.each do |p| %>
-    <p>#<%= p.id %>) <a href="/players/<%= p.id %>"><strong><%= p.username %></strong></a>
-    </p>
+ <ol>
+ <li> <p> <a href="/players/gameroom/<%= p.id %>"><strong><%= p.username %></strong></a></li>
+    </p></ol>
 <% end %>
