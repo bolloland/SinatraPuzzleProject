@@ -1,24 +1,25 @@
 class PuzzlesController < ApplicationController
 
-    get "/puzzles" do
+    get "/puzzles" do  #INDEX - Puzzle
         @puzzles = Puzzle.all 
         erb :"/puzzles/index"
     end
     
-    get '/puzzles/new' do
+    get '/puzzles/new' do  #NEW - Puzzle
         current_player
         erb :"/puzzles/new"
     end
 
-    get "/puzzles/:id" do
+    get "/puzzles/:id" do  #SHOW - Puzzle
         get_puzzle
         current_player
-        # binding.pry
+        flash[:nono] = "Sorry, I can't just /give/ you the answer!"
+    # binding.pry
 
         erb :"/puzzles/show"
     end
 
-    post "/puzzles" do
+    post "/puzzles" do  #CREATE - Puzzle
         puzzle = Puzzle.new(params)
         # binding.pry
         if puzzle.title.blank? || puzzle.description.blank? || puzzle.category.blank? || puzzle.solution.blank? 
@@ -46,7 +47,6 @@ class PuzzlesController < ApplicationController
         get_puzzle
         redirect_if_not_authorized
         erb :"/puzzles/edit"
-    
     end
     
     patch "/puzzles/:id" do

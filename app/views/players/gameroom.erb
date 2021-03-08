@@ -18,9 +18,7 @@
  
    <%= @player.games.count %> Puzzle(s) Attempted</p>
   <p>PUZZLES UPLOADED...</p>
-
   </div>
-
   <div class="column"><h3><%= @player.username.upcase %>'s SOLVES</h3>
 <p>
     <% @player.games.map do |g| %>
@@ -38,10 +36,10 @@
   
   <div class="column"><h3><%= @player.username.upcase %>'S UPLOADS</h3>
 
-  <a href="/puzzles/new"><button> UPLOAD </button></a>
+  
  <br></br>
 <% Puzzle.all.each do |z| %>
-      <% if z.created_by == current_player.username %>
+      <% if z.created_by == @player.username %>
       <p><a href="/puzzles/<%= z.id %>"><strong><%= z.title %></strong></a></p>
       <% end %>
 <% end %>

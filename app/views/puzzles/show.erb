@@ -1,25 +1,25 @@
 
-<h2> CONGRATS! IT'S A PUZZLE! </h2>
-<h4> <%= @current_player.username.upcase %>, below is the info on your new puzzle.<br>
+<h2> IT'S A PUZZLE! </h2>
+<h4> Below is the info on the puzzle : "<%= @puzzle.title %>"".<br>
 Others will be able to download and solve this puzzle, so make sure the information below is correct. 
 <p> </h2>
 <% if flash[:error] %>
-<h1><%= flash[:error] %></h1>
+<h3><%= flash[:error] %></h3>
 <% end %>
 <h3>
 
-Puzzle Title: <%= @puzzle.title %><br>
-Puzzle Description: <%= @puzzle.description %><br>
-Puzzle Category: <%= @puzzle.category %><br>
+Puzzle Title: <strong><%= @puzzle.title %><br></strong>
+Puzzle Description: <strong><%= @puzzle.description %></strong><br>
+Puzzle Category: <strong><%= @puzzle.category %></strong><br>
 Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
                         "<%= @puzzle.solution %>"<br>
                  <% elsif current_player.games.select do |g| %>
-                        <% g.puzzle_id == @puzzle.id && g.solved? == true %>
+                        <% if g.puzzle_id == @puzzle.id && g.solved? == true %>
                             "<%= @puzzle.solution %>"<br>
-                    
+                        <% end %>
                     <% end %>
                 <% else %>
-                    <%= "Nuh-uh-uh, I can't just GIVE you the answer!" %>
+                    <%= flash[:nono] %>
                 <% end %>
 </h3>
  <p>
