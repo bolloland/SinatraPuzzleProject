@@ -1,6 +1,6 @@
 # b.a.f.f.le Puzzle Sharing Site  - Now for Sinatra!
- Phase Two Project for Flatiron School Bootcamp - Software Engineering
- Focus on development of RESTful routing and CRUD functionality. 
+- Focus on development of RESTful routing and CRUD functionality.
+- Phase Two Project for Flatiron School Bootcamp - Software Engineering. 
 
 This application allows "players" to:
 - create an account on the app
