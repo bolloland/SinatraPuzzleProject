@@ -20,9 +20,9 @@ Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
                     <% end %>
                 <% else %>
                                 <% end %>
-(you can see the solution if you created this puzzle or have already solved it)
 </h3>
- <p>
+<h5>(you can see the solution if you created this puzzle or have already solved it)
+ </h5><p>
 <form action="/puzzles/<%= @puzzle.id %>/edit" method="GET">
     <input type="submit" value="Edit This Puzzle"></form><p>
 
