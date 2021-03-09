@@ -1,12 +1,43 @@
-run with 'shotgun'
+# b.a.f.f.le Puzzle Sharing Site  - Now for Sinatra!
+- Focus on development of RESTful routing and CRUD functionality.
+- Phase Two Project for Flatiron School Bootcamp - Software Engineering. 
 
-<Phase 2 Sinatra Project>
+This application allows "players" to:
+- create an account on the app
+- create, edit, and delete their own puzzles
+- read and attempt other players' puzzles
+- view all other players
+- view and access all submitted puzzles
 
-#run with     $ shotgun
+## Requirements
 
-An interactive model for a dynamic puzzle sharing and solving site. Users create an account that allows them to upload puzzles they've created, and also download puzzles from other user, and submit solutions to see if they are correct. 
+  <a href="https://www.ruby-lang.org/en/">`Ruby`</a>
 
-Players, Puzzles, and Games allow for a network of interactive filesharing as well as creating unique instances for individual play. 
+## Installation & Usage
+Clone this repository into your local environment.
+Install necessary gems using:
 
-An expanded version would allow for team play, and seamless upload/download through cloud storage. 
-Seed file provides initial puzzles and "players".
+  `bundle install`
+  
+This application uses 'shotgun' to run a local server. 
+Type the following in your terminal:
+
+  `shotgun`
+  
+With the server running, open up your preferred web browser and navigate to the following URL:
+
+  `http://localhost:9393`
+  
+Sign up for an account on the home page, and you're all set to start puzzling!
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+This Sinatra project is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Check out my blog post
+You can read about my experience developing this application on my [blog post](https://bloggy).
+
+## Video Walkthrough
+Click [here](https://youtu.be/~~~~~~~~~) for a video walkthrough of this application.
