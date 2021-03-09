@@ -64,8 +64,13 @@ class PlayersController < ApplicationController
 
     get '/players/account' do
         @player = current_player
+        if @player == nil 
+            flash[:log] = "Please sign in first to access your Gameroom"
+            redirect '/'
+        else
         # binding.pry
         erb :"/players/gameroom"
+        end
     end
 
 end
