@@ -37,7 +37,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 This Sinatra project is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Check out my blog post
-You can read about my experience developing this application on my [blog post](https://bloggy).
+You can read about my experience developing this application on my [blog post](https://bolloland.medium.com/ive-got-the-world-on-a-string-argument-imbedded-inside-my-show-route-4285ace511c2).
 
 ## Video Walkthrough
 Click [here](https://youtu.be/~~~~~~~~~) for a video walkthrough of this application.
