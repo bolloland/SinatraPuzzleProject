@@ -6,8 +6,8 @@ class PuzzlesController < ApplicationController
     end
     
     get '/puzzles/new' do  #NEW - Puzzle
-        if !logged_in?
-            redirect '/'
+        if current_player == nil
+            flash_home
         else        
         current_player
         erb :"/puzzles/new"
@@ -17,14 +17,10 @@ class PuzzlesController < ApplicationController
 
     get "/puzzles/:id" do  #SHOW - Puzzle
         if current_player == nil
-            flash[:login] = "Sign Up or Login to View Our Puzzles"
-            redirect '/'
+            flash_home
         else
         get_puzzle
         current_player
-        flash[:nono] = "Sorry, I can't just /give/ you the answer!"
-    # binding.pry
-
         erb :"/puzzles/show"
         end
     end
@@ -67,8 +63,9 @@ class PuzzlesController < ApplicationController
     end
 
     delete '/puzzles/:id' do 
-        # binding.pry
+        current_player
         get_puzzle
+        redirect_if_not_authorized
         @puzzle.destroy
         redirect '/puzzles'
         # no view 

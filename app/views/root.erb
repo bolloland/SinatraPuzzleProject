@@ -38,7 +38,7 @@ Puzzle Submissions and Solves</h2>
  <div class="column">
 <h4>Back to help your Team?<br>Sign in below!</h4>
 <% if flash[:error] %>
-<h1><%= flash[:error] %></h1>
+<h4><em><%= flash[:error] %></em></h4>
 <% end %>
 <form method="POST" action='/login'>
 username: <input type="text" name="username"><br>

@@ -22,8 +22,10 @@
   <div class="column"><h3><%= @player.username.upcase %>'s Progress</h3>
 <p>
     <% @player.games.each do |g| %>
-    <%   if g.solved? == true   %>
+    <%   if Puzzle.find_by_id(g.puzzle_id) == nil %>
   <ul>
+      <li><%= "~ this puzzle was deleted :( ~" %></li><br>
+      <% elsif g.solved? == true && g.puzzle_id != nil && Puzzle.find_by_id(g.puzzle_id) != nil %>
     <li>solved - <%= Puzzle.find_by_id(g.puzzle_id).title %> - 
     <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a><br></br> </li>
     <%   elsif g.solved? == false %>
@@ -31,15 +33,13 @@
     <a href="/puzzles/<%= g.puzzle_id %>"><button> Puzzle Page </button></a><br></br></li>
   </ul>
     <% else %>
-        <p> No puzzles currently attempted."</p>
+        <p> "No puzzles currently attempted."</p>
       <% end%>
     <%  end   %>
 </div>
   
   <div class="column"><h3><%= @player.username.upcase %>'S UPLOADS</h3>
 
-  
- <br></br>
 <% Puzzle.all.each do |z| %>
       <% if z.created_by == @player.username %>
       <p><a href="/puzzles/<%= z.id %>"><strong><%= z.title %></strong></a></p>

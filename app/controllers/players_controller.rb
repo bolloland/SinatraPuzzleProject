@@ -2,8 +2,12 @@ class PlayersController < ApplicationController
     #for anything pertaining to players
 
     get '/players' do
+        if current_player == nil
+            flash_home
+        else
         @players = Player.all
         erb :"/players/index"
+        end
     end
 
     get "/signup" do
@@ -30,15 +34,8 @@ class PlayersController < ApplicationController
     
     get "/players/gameroom/:id" do  #SHOW Player Stats
             @player = Player.find_by_id(params[:id])
-    # binding.pry
             erb :"/players/gameroom"
     end
-
-    # get "/players/:id" do
-    #     @player = Player.find_by_id(params[:id])
-    #     # binding.pry
-    #     erb :players
-    # end
 
     post "/login" do
         # binding.pry
@@ -51,7 +48,7 @@ class PlayersController < ApplicationController
             redirect "/players/gameroom/#{session[:player_id]}"
         else 
             # flash[]
-            flash[:error] = "Invalid login"
+            flash[:error] = "Sorry! Invalid username or password. Try again. "
             # invalid login
             redirect '/'
         end 
@@ -65,10 +62,9 @@ class PlayersController < ApplicationController
     get '/players/account' do
         @player = current_player
         if @player == nil 
-            flash[:log] = "Please sign in first to access your Gameroom"
-            redirect '/'
+            flash_home
         else
-        # binding.pry
+    # binding.pry
         erb :"/players/gameroom"
         end
     end

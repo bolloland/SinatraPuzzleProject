@@ -1,15 +1,14 @@
 
 <h2> IT'S A PUZZLE! </h2>
-<h4> Below is the info on the puzzle : "<%= @puzzle.title %>"".<br>
-Others will be able to download and solve this puzzle, so make sure the information below is correct. 
-<p> </h2>
+<h4> Below is the info on the puzzle : "<strong><%= @puzzle.title %></strong>".<br>
+</h4> [Others will be able view this description, so make sure the information below is correct.]
+<p> 
 <% if flash[:error] %>
-<h3><%= flash[:error] %></h3>
+<h3><em><%= flash[:error] %></em></h3>
 <% end %>
 <h3>
-
 Puzzle Title: <strong><%= @puzzle.title %><br></strong>
-Puzzle Description: <strong><%= @puzzle.description %></strong><br>
+Puzzle Description / Link: <strong><%= @puzzle.description %></strong><br>
 Puzzle Category: <strong><%= @puzzle.category %></strong><br>
 Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
                         "<%= @puzzle.solution %>"<br>
@@ -32,4 +31,4 @@ Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
 <br>
 <a href="/puzzles/new"><button>Submit Another Puzzle</button></a><p>
 
-<a href="/players/gameroom/<%= @current_player.id %>"><button>To The Gameroom</button></a> <p> 
+<a href="/players/gameroom/<%= @current_player.id %>"><button>To The Gameroom</button></a><p> 

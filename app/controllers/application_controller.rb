@@ -12,7 +12,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    #@player = Player.find_by_username(params[:username])
     erb :root
   end
 
@@ -28,6 +27,10 @@ class ApplicationController < Sinatra::Base
       !!session[:player_id]
     end
 
+    def flash_home
+        flash[:login] = "Sign Up or Login to Access Puzzles"
+        redirect '/'
+    end
     
 
 

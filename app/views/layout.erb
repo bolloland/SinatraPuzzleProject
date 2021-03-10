@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.w3-bar,h1,button,form {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
     <title>  ))<>(( b.a.f.f.le ))<>((</title>
@@ -43,8 +43,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="/players" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Players</a>
     <a href="/puzzles" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Puzzles</a>
     <a href="/puzzles/new" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit Puzzle</a>
-    <a href="/logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
-  
+    <% if logged_in? %>
+      <a href="/logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+    <% end %>
 
   </div>
  
