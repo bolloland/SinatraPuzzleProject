@@ -15,7 +15,6 @@ class ApplicationController < Sinatra::Base
     erb :root
   end
 
-  
   helpers do #LINK controllers and views
 
     def current_player #whoever is logged in
@@ -32,8 +31,6 @@ class ApplicationController < Sinatra::Base
         redirect '/'
     end
     
-
-
   end
 
 end

@@ -4,7 +4,7 @@
 </h4> [Others will be able view this description, so make sure the information below is correct.]
 <p> 
 <% if flash[:error] %>
-<h3><em><%= flash[:error] %></em></h3>
+<h2><strong><em><%= flash[:error] %></em><strong></h2>
 <% end %>
 <h3>
 Puzzle Title: <strong><%= @puzzle.title %><br></strong>
@@ -29,6 +29,3 @@ Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete This Puzzle"></form><p>
 <br>
-<a href="/puzzles/new"><button>Submit Another Puzzle</button></a><p>
-
-<a href="/players/gameroom/<%= @current_player.id %>"><button>To The Gameroom</button></a><p> 

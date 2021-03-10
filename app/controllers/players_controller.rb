@@ -17,8 +17,8 @@ class PlayersController < ApplicationController
      
     post '/signup' do
         player = Player.new(params)
+        
         #validate new player:
-
         if player.username.blank? || player.email.blank? || player.password.blank? 
             flash[:error] = "You left something blank!"
             redirect '/signup'
@@ -64,7 +64,6 @@ class PlayersController < ApplicationController
         if @player == nil 
             flash_home
         else
-    # binding.pry
         erb :"/players/gameroom"
         end
     end
