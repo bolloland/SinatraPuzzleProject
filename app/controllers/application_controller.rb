@@ -30,6 +30,12 @@ class ApplicationController < Sinatra::Base
         flash[:login] = "Sign Up or Login to Access Puzzles"
         redirect '/'
     end
+
+    def puzz_play
+      @player = current_player
+      get_puzzle
+      redirect_if_not_authorized
+    end
     
   end
 

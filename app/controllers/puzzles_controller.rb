@@ -49,17 +49,19 @@ class PuzzlesController < ApplicationController
     end
 
     get "/puzzles/:id/edit" do
-        current_player
-        get_puzzle
-        redirect_if_not_authorized
+        puzz_play
         erb :"/puzzles/edit"
     end
 
-    get "/puzzles/:id/edit" do
-        current_player
-        get_puzzle
-        redirect_if_not_authorized
-        erb :"/puzzles/edit"
+    post "/puzzles/:id/play" do
+        puzz_play
+        @game = Game.create(player_id: current_player.id, puzzle_id: get_puzzle.id)      
+        erb :"/players/gameroom"
+    end
+
+    post "/puzzles/:id/solve" do
+        puzz_play
+        erb :"/players/gameroom"
     end
     
     patch "/puzzles/:id" do
@@ -102,3 +104,13 @@ class PuzzlesController < ApplicationController
 
 
 end
+
+ #not a repeat?, then save
+#     if Game.exists?{:player_id == @player.id} && Game.exists?{:puzzle_id == get_puzzle.id}
+#         flash[:exist] = "You've already added this to your Gameroom"
+#         redirect "/players/gameroom/#{session[:player_id]}"
+#     else
+#         Game.create(player_id: @player.id, puzzle_id: get_puzzle.id)
+#     end
+#     erb :"/players/gameroom"
+# end
