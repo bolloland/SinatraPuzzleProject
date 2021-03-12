@@ -40,4 +40,4 @@ This Sinatra project is available as open source under the terms of the [MIT Lic
 You can read about my experience developing this application on my [blog post](https://bolloland.medium.com/ive-got-the-world-on-a-string-argument-imbedded-inside-my-show-route-4285ace511c2).
 
 ## Video Walkthrough
-Click [here](https://youtu.be/~~~~~~~~~) for a video walkthrough of this application.
+Click [here](https://www.loom.com/share/45df9bcfc7b54c2ebf78e2d3c6002a08) for a video walkthrough of this application.
