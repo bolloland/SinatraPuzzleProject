@@ -21,6 +21,7 @@
   </div>
   <div class="column"><h3><%= @player.username.upcase %>'s Progress</h3>
 <p>
+
     <% @player.games.each do |g| %>
     <%   if Puzzle.find_by_id(g.puzzle_id) == nil %>
   <ul>

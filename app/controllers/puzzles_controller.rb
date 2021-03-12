@@ -60,8 +60,20 @@ class PuzzlesController < ApplicationController
     end
 
     post "/puzzles/:id/solve" do
-        puzz_play
-        erb :"/players/gameroom"
+        @player = current_player
+        get_puzzle
+        # binding.pry
+        @player.games.find do |g|
+            g.puzzle_id == @puzzle.id
+            if params[:guess].downcase != @puzzle.solution.downcase
+                flash[:nope] = "Sorry, that's incorrect. Try again!"
+                redirect "/puzzles/#{@puzzle.id}"
+            else
+                g.update(solved?: true)
+                @player = Player.find_by_id(params[:id])
+               redirect "/players/account"
+            end
+        end
     end
     
     patch "/puzzles/:id" do

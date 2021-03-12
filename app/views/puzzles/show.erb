@@ -17,11 +17,10 @@ Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
                             "<%= @puzzle.solution %>"<br>
                         <% end %>
                     <% end %>
-                <% else %>
+                <% else %>"(you can see the solution if you created this puzzle or have already solved it)"
                                 <% end %>
 </h3>
-<h5>(you can see the solution if you created this puzzle or have already solved it)
- </h5><p>
+<p>
 <form action="/puzzles/<%= @puzzle.id %>/edit" method="GET">
     <input type="submit" value="Edit This Puzzle"></form><p>
 
@@ -34,11 +33,13 @@ Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
 <% end %>
 <form action="/puzzles/<%= @puzzle.id %>/play" method="POST">
     <input type="submit" value="Play This Puzzle"></form><p>
-<br>
 
+<% if flash[:nope] %>
+<h2><strong><em><%= flash[:nope] %></em><strong></h2>
+<% end %>
 <form action="/puzzles/<%= @puzzle.id %>/solve" method="POST">
-    <input type="text", name="solving">
-    <input type="submit" value="SOLVE This Puzzle"></form><p>
+    <input type="submit" value="SOLVE This Puzzle">
+    <input type="text", name="guess"></form><p>
 <br>
 
 Add a solve puzzle button
