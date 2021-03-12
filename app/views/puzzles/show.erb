@@ -28,4 +28,20 @@ Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
 <form action="/puzzles/<%= @puzzle.id %>" method="POST">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete This Puzzle"></form><p>
+
+<form action="/puzzles/<%= @puzzle.id %>/add" method="POST">
+    <input type="submit" value="Play This Puzzle"></form><p>
 <br>
+Post ‘add’
+params[puzzle_id]
+Use session[user_id]
+Create a new Game instance
+Then redirect the gameroom
+To account
+Could also add error handling if Game already created
+
+Add a solve puzzle button
+Post ‘/puzzles/:id/solve’
+Send params[game_id]
+And update solved to ‘true’
+The redirect back to account

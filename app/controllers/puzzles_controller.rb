@@ -54,6 +54,13 @@ class PuzzlesController < ApplicationController
         redirect_if_not_authorized
         erb :"/puzzles/edit"
     end
+
+    get "/puzzles/:id/edit" do
+        current_player
+        get_puzzle
+        redirect_if_not_authorized
+        erb :"/puzzles/edit"
+    end
     
     patch "/puzzles/:id" do
         get_puzzle

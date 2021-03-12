@@ -43,13 +43,10 @@ class PlayersController < ApplicationController
 
         if player && player.authenticate(params[:password])
             # login user
-            session[:player_id] = player.id
-            # redirect 
+            session[:player_id] = player.id 
             redirect "/players/gameroom/#{session[:player_id]}"
         else 
-            # flash[]
             flash[:error] = "Sorry! Invalid username or password. Try again. "
-            # invalid login
             redirect '/'
         end 
     end 
