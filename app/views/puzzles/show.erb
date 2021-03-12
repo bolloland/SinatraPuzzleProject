@@ -31,12 +31,14 @@ Puzzle Solution: <% if current_player.username == @puzzle.created_by %>
 <% if flash[:exist] %>
 <h4><strong><em><%= flash[:exist] %></em><strong></h4>
 <% end %>
+
 <form action="/puzzles/<%= @puzzle.id %>/play" method="POST">
     <input type="submit" value="Play This Puzzle"></form><p>
 
 <% if flash[:nope] %>
 <h2><strong><em><%= flash[:nope] %></em><strong></h2>
 <% end %>
+
 <form action="/puzzles/<%= @puzzle.id %>/solve" method="POST">
     <input type="submit" value="SOLVE This Puzzle">
     <input type="text", name="guess"></form><p>
