@@ -15,10 +15,9 @@ class ApplicationController < Sinatra::Base
     erb :root
   end
 
-  helpers do #LINK controllers and views
+  helpers do 
 
-    def current_player #whoever is logged in
-      #memoization >> if current isn't assigned yet, assign that variable to this player
+    def current_player 
       @current_player ||= Player.find_by_id(session[:player_id])
     end
 
@@ -26,8 +25,15 @@ class ApplicationController < Sinatra::Base
       !!session[:player_id]
     end
 
-    def flash_home
-        flash[:login] = "Sign Up or Login to Access Puzzles"
+    def hacking
+        if !logged_in?
+          flash_home
+        end
+    end
+
+
+    def flash_home 
+      flash[:login] = "Sign Up or Login to Access Puzzles"
         redirect '/'
     end
 

@@ -6,23 +6,15 @@ class PuzzlesController < ApplicationController
     end
     
     get '/puzzles/new' do  #NEW - Puzzle
-        if current_player == nil
-            flash_home
-        else        
-        current_player
+        hacking       
         erb :"/puzzles/new"
-        end
-
     end
 
     get "/puzzles/:id" do  #SHOW - Puzzle
-        if current_player == nil
-            flash_home
-        else
+        hacking
         get_puzzle
         current_player
         erb :"/puzzles/show"
-        end
     end
 
     post "/puzzles" do  #CREATE - Puzzle
@@ -85,8 +77,9 @@ class PuzzlesController < ApplicationController
     
     patch "/puzzles/:id" do
         get_puzzle
+        redirect_if_not_authorized
         @puzzle.update(title: params[:title], description: params[:description], category: params[:category], solution: params[:solution])
-    #    binding.pry
+    
        redirect "/puzzles/#{@puzzle.id}"   
     end
 
